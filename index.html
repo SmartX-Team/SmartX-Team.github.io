@@ -6,24 +6,18 @@
     <title>ScaleX</title>
     <style>
         :root {
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleX</title>
-    <style>
-        :root {
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
+            --dark-bg: #121212;
+            --light-bg: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #6c757d;
             --mobilex: #e74c3c;
             --datax: #3498db;
             --twinx: #9b59b6;
             --autox: #f39c12;
             --accent: #e74c3c;
+            --card-bg: #ffffff;
+            --border-color: #e9ecef;
         }
         
         * {
@@ -34,47 +28,49 @@
         }
         
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             line-height: 1.5;
         }
         
+        /* 헤더 스타일 */
         header {
-            padding: 2.5rem 0;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 1.5rem 0;
             text-align: center;
-            background-color: #0a0a0a;
-            border-bottom: 1px solid #2a2a2a;
         }
         
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         
         .logo-img {
-            height: 50px;
+            height: 45px;
             margin-right: 1rem;
         }
         
         .logo-text {
             font-size: 2.2rem;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--text-light);
             letter-spacing: -0.5px;
         }
         
         .tagline {
             font-size: 1rem;
-            color: var(--text-secondary);
+            opacity: 0.8;
             max-width: 600px;
-            margin: 0.5rem auto 0;
+            margin: 0 auto;
         }
         
+        /* 메인 콘텐츠 */
         main {
             flex: 1;
             max-width: 1200px;
@@ -82,6 +78,48 @@
             padding: 3rem 1.5rem;
         }
         
+        /* 소개 섹션 */
+        .intro-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .intro-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .intro-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+        }
+        
+        /* 서비스 헤딩 */
+        .services-heading {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        /* 서비스 컨테이너 */
         .services-container {
             display: flex;
             justify-content: center;
@@ -89,20 +127,22 @@
             margin-top: 1rem;
         }
         
+        /* 서비스 카드 */
         .service {
             flex: 1;
-            background-color: var(--bg-card);
+            background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
             max-width: 280px;
+            border: 1px solid var(--border-color);
         }
         
         .service:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
         
         .service-accent {
@@ -141,12 +181,12 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
-            color: var(--text-primary);
+            color: var(--text-dark);
         }
         
         .service-desc {
             font-size: 0.95rem;
-            color: var(--text-secondary);
+            color: var(--text-gray);
             flex-grow: 1;
             margin-bottom: 1.5rem;
         }
@@ -161,24 +201,13 @@
             font-size: 0.95rem;
             border-radius: 6px;
             transition: all 0.25s ease;
-            border: 1px solid #333;
+            border: 1px solid #e9ecef;
         }
         
-        .mobilex .service-link { 
-            color: var(--mobilex);
-        }
-        
-        .datax .service-link { 
-            color: var(--datax);
-        }
-        
-        .twinx .service-link { 
-            color: var(--twinx);
-        }
-        
-        .autox .service-link { 
-            color: var(--autox);
-        }
+        .mobilex .service-link { color: var(--mobilex); }
+        .datax .service-link { color: var(--datax); }
+        .twinx .service-link { color: var(--twinx); }
+        .autox .service-link { color: var(--autox); }
         
         .mobilex .service-link:hover { 
             background-color: var(--mobilex); 
@@ -219,15 +248,16 @@
             z-index: 2;
         }
         
+        /* 푸터 */
         footer {
             text-align: center;
             padding: 2rem 0;
-            background-color: #0a0a0a;
-            color: #666;
+            background-color: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
-            border-top: 1px solid #2a2a2a;
         }
         
+        /* 반응형 디자인 */
         @media (max-width: 1024px) {
             .services-container {
                 flex-wrap: wrap;
@@ -238,6 +268,20 @@
                 flex: 0 0 calc(50% - 1rem);
                 max-width: 320px;
                 margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                margin-bottom: 3rem;
+            }
+            
+            .intro-heading {
+                font-size: 1.8rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
             }
         }
         
@@ -259,323 +303,9 @@
             .logo-img {
                 height: 40px;
             }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo-container">
-            <!-- GIST 스타일의 ScaleX 로고 -->
-            <svg class="logo-img" width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 20H50V50H20V20Z" fill="#e74c3c"/>
-                <path d="M55 20H80V30H55V20Z" fill="#ffffff"/>
-                <path d="M55 35H80V45H55V35Z" fill="#ffffff"/>
-                <path d="M55 50H80V80H55V50Z" fill="#ffffff"/>
-                <path d="M20 55H50V80H20V55Z" fill="#ffffff"/>
-            </svg>
-            <h1 class="logo-text">ScaleX</h1>
-        </div>
-        <p class="tagline">통합 스케일링 솔루션 포털</p>
-    </header>
-    
-    <main>
-        <div class="services-container">
-            <!-- MobileX -->
-            <div class="service mobilex">
-                <div class="service-accent"></div>
-                <div class="service-content">
-                    <div class="service-icon-container">📱</div>
-                    <h2 class="service-title">MobileX</h2>
-                    <p class="service-desc">모바일 애플리케이션 확장 및 최적화 솔루션으로 사용자 경험을 향상시키세요.</p>
-                    <a href="https://mobilex.example.com" class="service-link">바로가기</a>
-                </div>
-                <a href="https://mobilex.example.com" class="service-overlay"></a>
-            </div>
             
-            <!-- DataX -->
-            <div class="service datax">
-                <div class="service-accent"></div>
-                <div class="service-content">
-                    <div class="service-icon-container">📊</div>
-                    <h2 class="service-title">DataX</h2>
-                    <p class="service-desc">빅데이터 처리 및 분석 스케일링 플랫폼으로 데이터의 가치를 발견하세요.</p>
-                    <a href="https://datax.example.com" class="service-link">바로가기</a>
-                </div>
-                <a href="https://datax.example.com" class="service-overlay"></a>
-            </div>
-            
-            <!-- TwinX -->
-            <div class="service twinx">
-                <div class="service-accent"></div>
-                <div class="service-content">
-                    <div class="service-icon-container">🔄</div>
-                    <h2 class="service-title">TwinX</h2>
-                    <p class="service-desc">디지털 트윈 구축 및 확장 솔루션으로 가상과 현실의 경계를 허물어 보세요.</p>
-                    <a href="https://twinx.example.com" class="service-link">바로가기</a>
-                </div>
-                <a href="https://twinx.example.com" class="service-overlay"></a>
-            </div>
-            
-            <!-- AutoX -->
-            <div class="service autox">
-                <div class="service-accent"></div>
-                <div class="service-content">
-                    <div class="service-icon-container">🤖</div>
-                    <h2 class="service-title">AutoX</h2>
-                    <p class="service-desc">자동화 시스템 스케일링 및 관리 플랫폼으로 효율성을 극대화하세요.</p>
-                    <a href="https://autox.example.com" class="service-link">바로가기</a>
-                </div>
-                <a href="https://autox.example.com" class="service-overlay"></a>
-            </div>
-        </div>
-    </main>
-    
-    <footer>
-        <p>© 2025 ScaleX. All rights reserved.</p>
-    </footer>
-</body>
-</html>
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --mobilex: #e74c3c;
-            --datax: #3498db;
-            --twinx: #9b59b6;
-            --autox: #f39c12;
-            --accent: #e74c3c;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-        
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.5;
-        }
-        
-        header {
-            padding: 2.5rem 0;
-            text-align: center;
-            background-color: #0a0a0a;
-            border-bottom: 1px solid #2a2a2a;
-        }
-        
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .logo-img {
-            height: 50px;
-            margin-right: 1rem;
-        }
-        
-        .logo-text {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-        }
-        
-        .tagline {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0.5rem auto 0;
-        }
-        
-        main {
-            flex: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
-        
-        .services-container {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .service {
-            flex: 1;
-            background-color: var(--bg-card);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            max-width: 280px;
-        }
-        
-        .service:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .service-accent {
-            height: 4px;
-        }
-        
-        .mobilex .service-accent { background-color: var(--mobilex); }
-        .datax .service-accent { background-color: var(--datax); }
-        .twinx .service-accent { background-color: var(--twinx); }
-        .autox .service-accent { background-color: var(--autox); }
-        
-        .service-content {
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            height: calc(100% - 4px);
-        }
-        
-        .service-icon-container {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .mobilex .service-icon-container { background-color: rgba(231, 76, 60, 0.15); color: var(--mobilex); }
-        .datax .service-icon-container { background-color: rgba(52, 152, 219, 0.15); color: var(--datax); }
-        .twinx .service-icon-container { background-color: rgba(155, 89, 182, 0.15); color: var(--twinx); }
-        .autox .service-icon-container { background-color: rgba(243, 156, 18, 0.15); color: var(--autox); }
-        
-        .service-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        
-        .service-desc {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            flex-grow: 1;
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-link {
-            display: inline-block;
-            width: 100%;
-            padding: 0.8rem 0;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-radius: 6px;
-            transition: all 0.25s ease;
-            border: 1px solid #333;
-        }
-        
-        .mobilex .service-link { 
-            color: var(--mobilex);
-        }
-        
-        .datax .service-link { 
-            color: var(--datax);
-        }
-        
-        .twinx .service-link { 
-            color: var(--twinx);
-        }
-        
-        .autox .service-link { 
-            color: var(--autox);
-        }
-        
-        .mobilex .service-link:hover { 
-            background-color: var(--mobilex); 
-            color: white;
-            border-color: var(--mobilex);
-        }
-        
-        .datax .service-link:hover { 
-            background-color: var(--datax); 
-            color: white;
-            border-color: var(--datax);
-        }
-        
-        .twinx .service-link:hover { 
-            background-color: var(--twinx); 
-            color: white;
-            border-color: var(--twinx);
-        }
-        
-        .autox .service-link:hover { 
-            background-color: var(--autox); 
-            color: white;
-            border-color: var(--autox);
-        }
-        
-        .service-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            cursor: pointer;
-            z-index: 1;
-        }
-        
-        .service-link {
-            position: relative;
-            z-index: 2;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            background-color: #0a0a0a;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #2a2a2a;
-        }
-        
-        @media (max-width: 1024px) {
-            .services-container {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .service {
-                flex: 0 0 calc(50% - 1rem);
-                max-width: 320px;
-                margin-bottom: 1rem;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .service {
-                flex: 0 0 100%;
-                max-width: 100%;
-                margin-bottom: 1.5rem;
-            }
-            
-            .services-container {
-                gap: 0;
-            }
-            
-            .logo-text {
-                font-size: 1.8rem;
-            }
-            
-            .logo-img {
-                height: 40px;
+            .intro-heading {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -597,6 +327,22 @@
     </header>
     
     <main>
+        <!-- ScaleX 소개 섹션 -->
+        <section class="intro-section">
+            <h2 class="intro-heading">확장성의 새로운 패러다임</h2>
+            <p class="intro-text">
+                ScaleX는 디지털 시대의 다양한 스케일링 요구를 충족시키기 위한 통합 솔루션 포털입니다. 모바일 애플리케이션부터 데이터 분석, 디지털 트윈, 자동화 시스템까지 - ScaleX는 모든 영역에서 확장성의 한계를 뛰어넘는 혁신적인 기술을 제공합니다. 
+                <br><br>
+                당신의 비즈니스가 어떤 규모이든, 어떤 산업에 속해 있든, ScaleX의 전문 솔루션을 통해 더 빠르고, 더 효율적으로, 더 스마트하게 성장할 수 있습니다.
+            </p>
+            
+            <!-- ScaleX 컨셉 이미지 -->
+            <img src="/api/placeholder/800/400" alt="ScaleX 스케일링 솔루션 개념도" class="intro-image">
+        </section>
+        
+        <!-- 서비스 섹션 -->
+        <h3 class="services-heading">ScaleX 핵심 서비스</h3>
+        
         <div class="services-container">
             <!-- MobileX -->
             <div class="service mobilex">
