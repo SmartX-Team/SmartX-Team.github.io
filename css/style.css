@@ -81,7 +81,7 @@ main {
     font-weight: 700;
     margin-bottom: 2rem;
     color: var(--text-dark);
-    text-align: center; /* 제목은 가운데 정렬 유지 */
+    text-align: center; 
 }
 
 .intro-content {
@@ -105,7 +105,7 @@ main {
     font-size: 1.1rem;
     color: var(--text-gray);
     line-height: 1.7;
-    text-align: left; /* 텍스트는 왼쪽 정렬 */
+    text-align: left; 
 }
 
 .intro-image {
@@ -261,7 +261,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* 반응형 디자인 */
+/* 반응형 */
 @media (max-width: 1024px) {
     .services-container {
         flex-wrap: wrap;
@@ -275,19 +275,19 @@ footer {
     }
 }
 
-/* 반응형 디자인 - 모바일에서는 세로로 배치 */
+/* 반응형 - 모바일에서는 세로로 배치 */
 @media (max-width: 768px) {
     .intro-content {
         flex-direction: column;
     }
     
     .intro-image-container {
-        order: 1; /* 이미지가 위에 오도록 */
+        order: 1; 
         margin-bottom: 1.5rem;
     }
     
     .intro-text-container {
-        order: 2; /* 텍스트가 아래로 오도록 */
+        order: 2; 
     }
 }
 
