@@ -73,26 +73,39 @@ main {
 
 /* 소개 섹션 */
 .intro-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     margin-bottom: 4rem;
 }
 
 .intro-heading {
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: var(--text-dark);
+    text-align: center; /* 제목은 가운데 정렬 유지 */
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.intro-image-container {
+    flex: 1;
+    min-width: 0;
+}
+
+.intro-text-container {
+    flex: 1;
+    min-width: 0;
 }
 
 .intro-text {
     font-size: 1.1rem;
     color: var(--text-gray);
-    max-width: 800px;
-    margin-bottom: 2rem;
     line-height: 1.7;
+    text-align: left; /* 텍스트는 왼쪽 정렬 */
 }
 
 .intro-image {
@@ -100,9 +113,7 @@ main {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-top: 1rem;
 }
-
 /* 서비스 헤딩 */
 .services-heading {
     text-align: center;
@@ -264,17 +275,19 @@ footer {
     }
 }
 
+/* 반응형 디자인 - 모바일에서는 세로로 배치 */
 @media (max-width: 768px) {
-    .intro-section {
-        margin-bottom: 3rem;
+    .intro-content {
+        flex-direction: column;
     }
     
-    .intro-heading {
-        font-size: 1.8rem;
+    .intro-image-container {
+        order: 1; /* 이미지가 위에 오도록 */
+        margin-bottom: 1.5rem;
     }
     
-    .intro-text {
-        font-size: 1rem;
+    .intro-text-container {
+        order: 2; /* 텍스트가 아래로 오도록 */
     }
 }
 
