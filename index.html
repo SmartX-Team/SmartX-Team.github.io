@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleX</title>
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleX</title>
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --mobilex: #e74c3c;
+            --datax: #3498db;
+            --twinx: #9b59b6;
+            --autox: #f39c12;
+            --accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+        }
+        
+        header {
+            padding: 2.5rem 0;
+            text-align: center;
+            background-color: #0a0a0a;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+        }
+        
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .service {
+            flex: 1;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            max-width: 280px;
+        }
+        
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .service-accent {
+            height: 4px;
+        }
+        
+        .mobilex .service-accent { background-color: var(--mobilex); }
+        .datax .service-accent { background-color: var(--datax); }
+        .twinx .service-accent { background-color: var(--twinx); }
+        .autox .service-accent { background-color: var(--autox); }
+        
+        .service-content {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 4px);
+        }
+        
+        .service-icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mobilex .service-icon-container { background-color: rgba(231, 76, 60, 0.15); color: var(--mobilex); }
+        .datax .service-icon-container { background-color: rgba(52, 152, 219, 0.15); color: var(--datax); }
+        .twinx .service-icon-container { background-color: rgba(155, 89, 182, 0.15); color: var(--twinx); }
+        .autox .service-icon-container { background-color: rgba(243, 156, 18, 0.15); color: var(--autox); }
+        
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-link {
+            display: inline-block;
+            width: 100%;
+            padding: 0.8rem 0;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            border: 1px solid #333;
+        }
+        
+        .mobilex .service-link { 
+            color: var(--mobilex);
+        }
+        
+        .datax .service-link { 
+            color: var(--datax);
+        }
+        
+        .twinx .service-link { 
+            color: var(--twinx);
+        }
+        
+        .autox .service-link { 
+            color: var(--autox);
+        }
+        
+        .mobilex .service-link:hover { 
+            background-color: var(--mobilex); 
+            color: white;
+            border-color: var(--mobilex);
+        }
+        
+        .datax .service-link:hover { 
+            background-color: var(--datax); 
+            color: white;
+            border-color: var(--datax);
+        }
+        
+        .twinx .service-link:hover { 
+            background-color: var(--twinx); 
+            color: white;
+            border-color: var(--twinx);
+        }
+        
+        .autox .service-link:hover { 
+            background-color: var(--autox); 
+            color: white;
+            border-color: var(--autox);
+        }
+        
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        .service-link {
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #0a0a0a;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #2a2a2a;
+        }
+        
+        @media (max-width: 1024px) {
+            .services-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .service {
+                flex: 0 0 calc(50% - 1rem);
+                max-width: 320px;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .service {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .services-container {
+                gap: 0;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <!-- GIST 스타일의 ScaleX 로고 -->
+            <svg class="logo-img" width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 20H50V50H20V20Z" fill="#e74c3c"/>
+                <path d="M55 20H80V30H55V20Z" fill="#ffffff"/>
+                <path d="M55 35H80V45H55V35Z" fill="#ffffff"/>
+                <path d="M55 50H80V80H55V50Z" fill="#ffffff"/>
+                <path d="M20 55H50V80H20V55Z" fill="#ffffff"/>
+            </svg>
+            <h1 class="logo-text">ScaleX</h1>
+        </div>
+        <p class="tagline">통합 스케일링 솔루션 포털</p>
+    </header>
+    
+    <main>
+        <div class="services-container">
+            <!-- MobileX -->
+            <div class="service mobilex">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">📱</div>
+                    <h2 class="service-title">MobileX</h2>
+                    <p class="service-desc">모바일 애플리케이션 확장 및 최적화 솔루션으로 사용자 경험을 향상시키세요.</p>
+                    <a href="https://mobilex.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://mobilex.example.com" class="service-overlay"></a>
+            </div>
+            
+            <!-- DataX -->
+            <div class="service datax">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">📊</div>
+                    <h2 class="service-title">DataX</h2>
+                    <p class="service-desc">빅데이터 처리 및 분석 스케일링 플랫폼으로 데이터의 가치를 발견하세요.</p>
+                    <a href="https://datax.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://datax.example.com" class="service-overlay"></a>
+            </div>
+            
+            <!-- TwinX -->
+            <div class="service twinx">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">🔄</div>
+                    <h2 class="service-title">TwinX</h2>
+                    <p class="service-desc">디지털 트윈 구축 및 확장 솔루션으로 가상과 현실의 경계를 허물어 보세요.</p>
+                    <a href="https://twinx.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://twinx.example.com" class="service-overlay"></a>
+            </div>
+            
+            <!-- AutoX -->
+            <div class="service autox">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">🤖</div>
+                    <h2 class="service-title">AutoX</h2>
+                    <p class="service-desc">자동화 시스템 스케일링 및 관리 플랫폼으로 효율성을 극대화하세요.</p>
+                    <a href="https://autox.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://autox.example.com" class="service-overlay"></a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 ScaleX. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --mobilex: #e74c3c;
+            --datax: #3498db;
+            --twinx: #9b59b6;
+            --autox: #f39c12;
+            --accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+        }
+        
+        header {
+            padding: 2.5rem 0;
+            text-align: center;
+            background-color: #0a0a0a;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+        }
+        
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .service {
+            flex: 1;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            max-width: 280px;
+        }
+        
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .service-accent {
+            height: 4px;
+        }
+        
+        .mobilex .service-accent { background-color: var(--mobilex); }
+        .datax .service-accent { background-color: var(--datax); }
+        .twinx .service-accent { background-color: var(--twinx); }
+        .autox .service-accent { background-color: var(--autox); }
+        
+        .service-content {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 4px);
+        }
+        
+        .service-icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mobilex .service-icon-container { background-color: rgba(231, 76, 60, 0.15); color: var(--mobilex); }
+        .datax .service-icon-container { background-color: rgba(52, 152, 219, 0.15); color: var(--datax); }
+        .twinx .service-icon-container { background-color: rgba(155, 89, 182, 0.15); color: var(--twinx); }
+        .autox .service-icon-container { background-color: rgba(243, 156, 18, 0.15); color: var(--autox); }
+        
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-link {
+            display: inline-block;
+            width: 100%;
+            padding: 0.8rem 0;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            border: 1px solid #333;
+        }
+        
+        .mobilex .service-link { 
+            color: var(--mobilex);
+        }
+        
+        .datax .service-link { 
+            color: var(--datax);
+        }
+        
+        .twinx .service-link { 
+            color: var(--twinx);
+        }
+        
+        .autox .service-link { 
+            color: var(--autox);
+        }
+        
+        .mobilex .service-link:hover { 
+            background-color: var(--mobilex); 
+            color: white;
+            border-color: var(--mobilex);
+        }
+        
+        .datax .service-link:hover { 
+            background-color: var(--datax); 
+            color: white;
+            border-color: var(--datax);
+        }
+        
+        .twinx .service-link:hover { 
+            background-color: var(--twinx); 
+            color: white;
+            border-color: var(--twinx);
+        }
+        
+        .autox .service-link:hover { 
+            background-color: var(--autox); 
+            color: white;
+            border-color: var(--autox);
+        }
+        
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        .service-link {
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #0a0a0a;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #2a2a2a;
+        }
+        
+        @media (max-width: 1024px) {
+            .services-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .service {
+                flex: 0 0 calc(50% - 1rem);
+                max-width: 320px;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .service {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .services-container {
+                gap: 0;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <!-- GIST 스타일의 ScaleX 로고 -->
+            <svg class="logo-img" width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 20H50V50H20V20Z" fill="#e74c3c"/>
+                <path d="M55 20H80V30H55V20Z" fill="#ffffff"/>
+                <path d="M55 35H80V45H55V35Z" fill="#ffffff"/>
+                <path d="M55 50H80V80H55V50Z" fill="#ffffff"/>
+                <path d="M20 55H50V80H20V55Z" fill="#ffffff"/>
+            </svg>
+            <h1 class="logo-text">ScaleX</h1>
+        </div>
+        <p class="tagline">통합 스케일링 솔루션 포털</p>
+    </header>
+    
+    <main>
+        <div class="services-container">
+            <!-- MobileX -->
+            <div class="service mobilex">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">📱</div>
+                    <h2 class="service-title">MobileX</h2>
+                    <p class="service-desc">모바일 애플리케이션 확장 및 최적화 솔루션으로 사용자 경험을 향상시키세요.</p>
+                    <a href="https://mobilex.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://mobilex.example.com" class="service-overlay"></a>
+            </div>
+            
+            <!-- DataX -->
+            <div class="service datax">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">📊</div>
+                    <h2 class="service-title">DataX</h2>
+                    <p class="service-desc">빅데이터 처리 및 분석 스케일링 플랫폼으로 데이터의 가치를 발견하세요.</p>
+                    <a href="https://datax.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://datax.example.com" class="service-overlay"></a>
+            </div>
+            
+            <!-- TwinX -->
+            <div class="service twinx">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">🔄</div>
+                    <h2 class="service-title">TwinX</h2>
+                    <p class="service-desc">디지털 트윈 구축 및 확장 솔루션으로 가상과 현실의 경계를 허물어 보세요.</p>
+                    <a href="https://twinx.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://twinx.example.com" class="service-overlay"></a>
+            </div>
+            
+            <!-- AutoX -->
+            <div class="service autox">
+                <div class="service-accent"></div>
+                <div class="service-content">
+                    <div class="service-icon-container">🤖</div>
+                    <h2 class="service-title">AutoX</h2>
+                    <p class="service-desc">자동화 시스템 스케일링 및 관리 플랫폼으로 효율성을 극대화하세요.</p>
+                    <a href="https://autox.example.com" class="service-link">바로가기</a>
+                </div>
+                <a href="https://autox.example.com" class="service-overlay"></a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 ScaleX. All rights reserved.</p>
+    </footer>
+</body>
+</html>
