@@ -1,5 +1,5 @@
 :root {
-    --dark-bg: #121212;
+    --dark-bg: #0f0f0f;
     --light-bg: #f8f9fa;
     --text-light: #ffffff;
     --text-dark: #333333;
@@ -8,7 +8,7 @@
     --datax: #3498db;
     --twinx: #9b59b6;
     --autox: #f39c12;
-    --accent: #e74c3c;
+    --accent: #140604;
     --card-bg: #ffffff;
     --border-color: #e9ecef;
 }
@@ -34,19 +34,20 @@ header {
     background-color: var(--dark-bg);
     color: var(--text-light);
     padding: 1.5rem 0;
-    text-align: center;
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
 }
 
 .logo-img {
-    height: 45px;
-    margin-right: 1rem;
+    height: 100px;
+    position: absolute; 
+    left: 1rem; /* 왼쪽에 고정 */
+}
+
+.logo-container {
+    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 .logo-text {
@@ -61,6 +62,7 @@ header {
     opacity: 0.8;
     max-width: 600px;
     margin: 0 auto;
+    color: var(--text-light);
 }
 
 /* 메인 콘텐츠 */
@@ -77,7 +79,7 @@ main {
 }
 
 .intro-heading {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 2rem;
     color: var(--text-dark);
@@ -113,14 +115,6 @@ main {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-/* 서비스 헤딩 */
-.services-heading {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--text-dark);
 }
 
 /* 서비스 컨테이너 */
