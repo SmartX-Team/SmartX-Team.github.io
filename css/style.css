@@ -39,21 +39,31 @@ header {
 }
 
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%; 
-    max-width: 1200px; 
     position: relative;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem calc(1.5rem + 13rem);
+  }
+
 
 .logo-img {
     position: absolute;
-    left: -30px; /* 왼쪽 여백 추가 */
+    left: 1.5rem;               
+    top: 50%;
+    transform: translateY(-50%);
+    width: 13rem;               
+    max-width: calc(50vw - 1.5rem);  
+    height: auto;
 }
 
+
 .logo-container {
-    text-align: center;
+    text-align: center;         
+    
 }
 
 .logo-text {
