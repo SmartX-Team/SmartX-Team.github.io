@@ -46,7 +46,7 @@ header {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.5rem calc(1.5rem + 13rem);
+    padding: 1.5rem calc(1.5rem + 13rem); /*컨텐츠와 로고가 겹치지 않도록 공간 확보 */
   }
 
 
@@ -56,7 +56,7 @@ header {
     top: 50%;
     transform: translateY(-50%);
     width: 13rem;               
-    max-width: calc(50vw - 1.5rem);  
+    max-width: calc(50vw - 1.5rem); /* 로고 이미지가 너무 작아지지 않도록 수정 */ 
     height: auto;
 }
 
@@ -202,23 +202,22 @@ main {
 
 /* MobileX 아이콘 크기 및 위치 조정 */
 .mobilex-icon {
-    width: 70%; /* 크기 조정 */
+    width: 70%; 
     height: 90%;
     transform: translateX(2px) translateY(3px); /* 위치 이동 */
 }
 
-/* DataX 아이콘 크기 및 위치 조정 */
 .datax-icon {
     width: 70%; 
     height: auto;
     transform: translateX(2px); 
 }
-/* Twinx 아이콘 크기 및 위치 조정 */
+
 .twinx-icon {
     width: 100%; 
     height: 60%; 
 }
-/* AutoX 아이콘 크기 조정 */
+
 .autox-icon {
     width: 100%; 
     height: 90%;
