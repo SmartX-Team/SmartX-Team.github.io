@@ -5,8 +5,8 @@
     --text-dark: #333333;
     --text-gray: #6c757d;
     --mobilex: #e74c3c;
-    --datax: #3498db;
-    --twinx: #9b59b6;
+    --datax: #14aa52;
+    --twinx: #4776E6;
     --autox: #f39c12;
     --accent: #140604;
     --card-bg: #ffffff;
@@ -224,8 +224,8 @@ main {
 }
 
 .mobilex .service-icon-container { background-color: rgba(231, 76, 60, 0.15); }
-.datax .service-icon-container { background-color: rgba(52, 152, 219, 0.15); }
-.twinx .service-icon-container { background-color: rgba(155, 89, 182, 0.15); }
+.datax .service-icon-container { background-color: #E3FCEF }
+.twinx .service-icon-container { background-color: #f0f4ff }
 .autox .service-icon-container { background-color: rgba(243, 156, 18, 0.15); }
 
 .service-title {
