@@ -82,7 +82,7 @@ header {
 /* 메인 콘텐츠 */
 main {
     flex: 1;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 3rem 1.5rem;
 }
@@ -151,7 +151,7 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
-    max-width: 330px;
+    max-width: 310px;
     border: 1px solid var(--border-color);
     min-width: 250px;
 }
