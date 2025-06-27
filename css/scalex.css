@@ -44,9 +44,8 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1500px;
+    max-width: 1250px;
     margin: 0 auto;
-    padding: 1.5rem calc(1.5rem + 13rem); /*컨텐츠와 로고가 겹치지 않도록 공간 확보 */
   }
 
 
